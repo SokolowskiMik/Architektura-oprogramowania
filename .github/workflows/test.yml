@@ -9,4 +9,4 @@ jobs:
       
       - name: print Firebase API Key
         run: |
-          echo index.html
+          cat index.html
