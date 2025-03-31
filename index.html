@@ -1,6 +1,7 @@
 <html>
     <head>
-
+        <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore-compat.js"></script>
     </head>
     <body>
         <script type="module">
@@ -15,12 +16,13 @@
           
             // Your web app's Firebase configuration
             const firebaseConfig = {
-              apiKey: "AIzaSyC_Ckr6ukuKfnYBcSutBACb8nTxRLq2B30",
-              authDomain: "mobile1-b8d84.firebaseapp.com",
-              projectId: "mobile1-b8d84",
-              storageBucket: "mobile1-b8d84.appspot.com",
-              messagingSenderId: "904226315912",
-              appId: "1:904226315912:web:7a419ed8447221fa50c93d"
+                apiKey: "AIzaSyDczF3Ih0b5zl4u47DjSCyvgNtBP7vRW1E",
+                authDomain: "architektura-oprogramowa-2652c.firebaseapp.com",
+                projectId: "architektura-oprogramowa-2652c",
+                storageBucket: "architektura-oprogramowa-2652c.firebasestorage.app",
+                messagingSenderId: "924359418249",
+                appId: "1:924359418249:web:e0e70a8cf5ed12eb990158",
+                measurementId: "G-NB6LRBTLX1"
             };
           
             // Initialize Firebase
@@ -30,12 +32,12 @@
             const db = getFirestore(app);
 
             // Read data
-            const querySnapshot = await getDocs(collection(db, "cars"));
+            const querySnapshot = await getDocs(collection(db, "bikes"));
 
             querySnapshot.forEach((doc) => {
                 console.log(doc.data());
-                console.log(doc.data()['brand'],doc.data()['model']);
-                document.writeln(doc.data()['brand'],' ',doc.data()['model'],'<br>');
+                console.log(doc.data()['marka'],doc.data()['model']);
+                document.writeln(doc.data()['marka'],' ',doc.data()['model'],' ',doc.data()['konie'] ,'<br>');
             });
 
         </script>
