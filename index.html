@@ -69,7 +69,7 @@
                     const querySnapshot = await getDocs(collection(db, "bikes"));
                     
                     if (querySnapshot.empty) {
-                        bikesTable.innerHTML = '<tr><td colspan="3" class="text-center">Brak danych o rowerach</td></tr>';
+                        bikesTable.innerHTML = '<tr><td colspan="3" class="text-center">Brak danych o motocyklach</td></tr>';
                         return;
                     }
 
@@ -80,9 +80,9 @@
                         
                         bikesHTML += `
                             <tr>
-                                <td>${bikeData.marka || '-'}</td>
-                                <td>${bikeData.model || '-'}</td>
-                                <td>${bikeData.konie || '-'}</td>
+                                <td data-label="Marka">${bikeData.marka || '-'}</td>
+                                <td data-label="Model">${bikeData.model || '-'}</td>
+                                <td data-label="Moc (KM)">${bikeData.konie || '-'}</td>
                             </tr>
                         `;
                     });
