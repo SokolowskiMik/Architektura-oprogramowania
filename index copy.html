@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore-compat.js"></script>
+    </head>
+    <body>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+            
+            // Firestore
+            import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
+            import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyDczF3Ih0b5zl4u47DjSCyvgNtBP7vRW1E",
+                authDomain: "architektura-oprogramowa-2652c.firebaseapp.com",
+                projectId: "architektura-oprogramowa-2652c",
+                storageBucket: "architektura-oprogramowa-2652c.firebasestorage.app",
+                messagingSenderId: "924359418249",
+                appId: "1:924359418249:web:e0e70a8cf5ed12eb990158",
+                measurementId: "G-NB6LRBTLX1"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            // Initialize Cloud Firestore and get a reference to the service
+            const db = getFirestore(app);
+
+            // Read data
+            const querySnapshot = await getDocs(collection(db, "bikes"));
+
+            querySnapshot.forEach((doc) => {
+                console.log(doc.data());
+                console.log(doc.data()['marka'],doc.data()['model']);
+                document.writeln(doc.data()['marka'],' ',doc.data()['model'],' ',doc.data()['konie'] ,'<br>');
+            });
+
+        </script>
+    </body>
+</html>
